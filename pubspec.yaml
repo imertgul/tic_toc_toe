@@ -21,7 +21,6 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  flutter_icons: ^1.1.0
   flutter:
     sdk: flutter
 
