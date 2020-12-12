@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+
+typedef OnChanged = void Function(String);
 
 class Tic extends StatefulWidget {
+  OnChanged onChanged;
+  Tic({this.onChanged});
   @override
   _TicState createState() => _TicState();
 }
 
 class _TicState extends State<Tic> {
+  String value = "X";
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(Icons.t),
-    );
+    return Text(value);
   }
 }
