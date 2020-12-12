@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_toc_toe/model/Player.dart';
+import 'package:tic_toc_toe/model/Game.dart';
 import '../widget/tic.dart';
 
 class Tictactoe extends StatefulWidget {
@@ -19,8 +20,8 @@ class _TictactoeState extends State<Tictactoe> {
     super.initState();
     player1 = new Player(side: "X");
     widget.isTwoPlayer
-        ? player2 = new Player(side: "O", isComputer: true)
-        : player2 = new Player(side: "O");
+        ? player2 = new Player(side: "O")
+        : player2 = new Player(side: "O", isComputer: true);
     players.add(player1);
     players.add(player2);
   }
@@ -39,7 +40,16 @@ class _TictactoeState extends State<Tictactoe> {
                 crossAxisCount: 3,
                 children: List.generate(9, (index) {
                   return Center(
-                    child: Tic(),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Tic(
+                        x: index,
+                        onChanged: (val) {
+                          print(val);
+                          myGame.nextTurn();
+                        },
+                      ),
+                    ),
                   );
                 }),
               ),
